@@ -48,16 +48,15 @@
        [data-menu-hover="list"]
          [data-menu-hover="item"]          link
            [data-menu-hover="image"]       afbeelding uit het CMS
-     Desktop (>= 992px): afbeelding staat fullscreen achter de tekst en
-     fadet in bij hover (0.6s) en uit bij mouseleave (1s), zoals de oude
-     Webflow-interactie. Op tablet en mobiel doet het script niets; daar
-     staat de afbeelding gewoon in de kaart.                                  */
+     De afbeelding staat fullscreen achter de tekst en fadet in bij hover
+     of focus (0.6s) en uit bij mouseleave of blur (1s), op alle
+     breakpoints, net als de oude Webflow-interactie.                         */
   function initMenuHover() {
     if (typeof window.gsap === 'undefined') return;
     var gsap = window.gsap;
     var mm = gsap.matchMedia();
 
-    mm.add('(min-width: 992px)', function () {
+    mm.add('all', function () {
       var items = document.querySelectorAll('[data-menu-hover="item"]');
       var handlers = [];
 
